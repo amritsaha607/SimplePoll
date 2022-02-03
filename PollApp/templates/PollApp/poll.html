@@ -7,13 +7,17 @@
   <h6> {{ poll.description }} </h6>
 </i>
 <hr class="my-4">
-{% for choice in poll.choices.all %}
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="choice_id" id="{{ choice.id }}">
-  <label class="form-check-label" for="{{ choice.id }}">
-    {{ choice.name }}
-  </label>
-</div>
-{% endfor %}
+<form>
+  {% for choice in poll.choices.all %}
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="choice_id" id="{{ choice.id }}">
+    <label class="form-check-label" for="{{ choice.id }}">
+      {{ choice.name }}
+    </label>
+  </div>
+  {% endfor %}
+  <hr class="my-4">
+  <button class="btn btn-outline-success">Vote</button>
+</form>
 
 {% endblock %}
