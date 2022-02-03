@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% for poll in polls %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ poll.name }}</h5>
+    <p class="card-text">{{ poll.description }}</p>
+    <a href="{% url 'PollApp:poll' poll.id %}" class="btn btn-primary">Vote</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
